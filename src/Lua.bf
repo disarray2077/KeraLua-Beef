@@ -811,6 +811,7 @@ namespace KeraLua
 		/// <param name="buffer"></param>
 		public void PushBuffer<CSize>(uint8[CSize] buffer) where CSize : const int
         {
+#unwarn
             LuaMethods.lua_pushlstring(_luaState, (.)&buffer[0], (.)CSize);
         }
 
