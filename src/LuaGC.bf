@@ -2,56 +2,32 @@ using System;
 
 namespace KeraLua
 {
-    /// <summary>
     /// Garbage Collector operations
-    /// </summary>
     public enum LuaGC : int32
     {
-        /// <summary>
-        ///  Stops the garbage collector. 
-        /// </summary>
+        /// Stops the garbage collector.
         Stop = 0,
-        /// <summary>
-        /// Restarts the garbage collector. 
-        /// </summary>
+        /// Restarts the garbage collector.
         Restart = 1,
-        /// <summary>
-        /// Performs a full garbage-collection cycle. 
-        /// </summary>
+        /// Performs a full garbage-collection cycle.
         Collect = 2,
-        /// <summary>
-        ///  Returns the current amount of memory (in Kbytes) in use by Lua. 
-        /// </summary>
+        /// Returns the current amount of memory (in Kbytes) in use by Lua.
         Count = 3,
-        /// <summary>
-        ///  Returns the remainder of dividing the current amount of bytes of memory in use by Lua by 1024
-        /// </summary>
+        /// Returns the remainder of dividing the current amount of bytes of memory in use by Lua by 1024
         Countb = 4,
-        /// <summary>
-        ///  Performs an incremental step of garbage collection. 
-        /// </summary>
+        /// Performs an incremental step of garbage collection.
         Step = 5,
-        /// <summary>
-        /// The options LUA_GCSETPAUSE and LUA_GCSETSTEPMUL of the function lua_gc are deprecated. You should use the new option LUA_GCINC to set them. 
-        /// </summary>
+        /// The options LUA_GCSETPAUSE and LUA_GCSETSTEPMUL of the function lua_gc are deprecated. You should use the new option LUA_GCINC to set them.
         //[Obsolete("Deprecatad since Lua 5.4, Use Incremental instead", false)]
         SetPause = 6,
-        /// <summary>
-        /// The options LUA_GCSETPAUSE and LUA_GCSETSTEPMUL of the function lua_gc are deprecated. You should use the new option LUA_GCINC to set them. 
-        /// </summary>
+        /// The options LUA_GCSETPAUSE and LUA_GCSETSTEPMUL of the function lua_gc are deprecated. You should use the new option LUA_GCINC to set them.
         //[Obsolete("Deprecatad since Lua 5.4, Use Incremental instead", false)]
         SetStepMultiplier = 7,
-        /// <summary>
-        ///  returns a boolean that tells whether the collector is running
-        /// </summary>
+        /// returns a boolean that tells whether the collector is running
         IsRunning = 9,
-        /// <summary>
-        ///  Changes the collector to generational mode with the given parameters (see §2.5.2). Returns the previous mode (LUA_GCGEN or LUA_GCINC). 
-        /// </summary>
+        /// Changes the collector to generational mode with the given parameters (see §2.5.2). Returns the previous mode (LUA_GCGEN or LUA_GCINC).
         Generational = 10,
-        /// <summary>
-        /// Changes the collector to incremental mode with the given parameters (see §2.5.1). Returns the previous mode (LUA_GCGEN or LUA_GCINC). 
-        /// </summary>
+        /// Changes the collector to incremental mode with the given parameters (see §2.5.1). Returns the previous mode (LUA_GCGEN or LUA_GCINC).
         Incremental = 11,
     }
 

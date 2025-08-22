@@ -2,15 +2,11 @@ using System;
 
 namespace KeraLua
 {
-    /// <summary>
     /// Enum for pseudo-index used by registry table
-    /// </summary>
     public enum LuaRegistry : int32
     {
         /* LUAI_MAXSTACK		1000000 */
-        /// <summary>
         /// pseudo-index used by registry table
-        /// </summary>
         Index = -1000000 - 1000
     }
 
@@ -23,18 +19,12 @@ namespace KeraLua
 		}
 	}
 
-    /// <summary>
-    /// Registry index 
-    /// </summary>
+    /// Registry index
     public enum LuaRegistryIndex : int32
     {
-        /// <summary>
-        ///  At this index the registry has the main thread of the state.
-        /// </summary>
+        /// At this index the registry has the main thread of the state.
         MainThread = 1,
-        /// <summary>
-        /// At this index the registry has the global environment. 
-        /// </summary>
+        /// At this index the registry has the global environment.
         Globals = 2,
     }
 

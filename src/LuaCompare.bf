@@ -2,22 +2,14 @@ using System;
 
 namespace KeraLua
 {
-    /// <summary>
     /// Used by Compare
-    /// </summary>
     public enum LuaCompare : int32
     {
-        /// <summary>
-        ///  compares for equality (==)
-        /// </summary>
+        /// compares for equality (==)
         Equal = 0,
-        /// <summary>
-        ///  compares for less than 
-        /// </summary>
+        /// compares for less than
         LessThen = 1,
-        /// <summary>
-        /// compares for less or equal 
-        /// </summary>
+        /// compares for less or equal
         LessOrEqual = 2
     }
 
