@@ -202,7 +202,7 @@ namespace KeraLua
 		internal static extern int32 lua_rawgetp(lua_State luaState, int32 index, void* p);
 
 		[Import(LuaLibraryName), CLink]
-		internal static extern uint lua_rawlen(lua_State luaState, int32 index);
+		internal static extern uint64 lua_rawlen(lua_State luaState, int32 index);
 
 		[Import(LuaLibraryName), CLink]
 		internal static extern void lua_rawset(lua_State luaState, int32 index);
@@ -244,7 +244,7 @@ namespace KeraLua
 		internal static extern char8* lua_setlocal(lua_State luaState, lua_Debug ar, int32 n);
 
 		[Import(LuaLibraryName), CLink]
-		internal static extern void lua_setmetatable(lua_State luaState, int32 objIndex);
+		internal static extern int32 lua_setmetatable(lua_State luaState, int32 objIndex);
 
 		[Import(LuaLibraryName), CLink]
 		internal static extern void lua_settable(lua_State luaState, int32 index);
