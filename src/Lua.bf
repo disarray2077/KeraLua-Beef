@@ -1,5 +1,6 @@
 using System;
 using System.Text;
+using System.Diagnostics;
 
 using internal KeraLua;
 
@@ -500,17 +501,21 @@ namespace KeraLua
                 return;
             }
 
-            uint8[] buffer = Encoding.GetBytes(value, .. ?);
+            let len = Encoding.GetEncodedSize(value);
+            uint8[] buffer = new:ScopedAlloc! uint8[len](?);
+            int actualLen = Encoding.Encode(value, .(buffer));
+            Debug.Assert(len == actualLen);
             PushBuffer(buffer);
-			delete buffer;
         }
 
         /// Pushes a string onto the stack
         public void PushString(StringView value)
         {
-            uint8[] buffer = Encoding.GetBytes(value, .. ?);
+            let len = Encoding.GetEncodedSize(value);
+            uint8[] buffer = new:ScopedAlloc! uint8[len](?);
+            int actualLen = Encoding.Encode(value, .(buffer));
+            Debug.Assert(len == actualLen);
             PushBuffer(buffer);
-			delete buffer;
         }
 
         /// Push a instring using string.Format PushString("Foo {0}", 10);
@@ -1212,10 +1217,11 @@ namespace KeraLua
         /// Loads a string as a Lua chunk
         public LuaStatus LoadString(StringView chunk, StringView? name)
         {
-            uint8[] buffer = Encoding.GetBytes(chunk, .. ?);
-            var status = LoadBuffer(buffer, name);
-			delete buffer;
-			return status;
+            let len = Encoding.GetEncodedSize(chunk);
+            uint8[] buffer = new:ScopedAlloc! uint8[len](?);
+            int actualLen = Encoding.Encode(chunk, .(buffer));
+            Debug.Assert(len == actualLen);
+            return LoadBuffer(buffer, name);
         }
 
         /// Loads a string as a Lua chunk
